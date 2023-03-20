@@ -36,7 +36,7 @@ class Board:
         if self.board[position[1]][position[0]] != "_":
             return False
         else:
-            self.board[position[1]][position[0]] = player
+            self.board[position[0]][position[1]] = player
             return True
 
     def count_points(self, player: str) -> (int, int):
