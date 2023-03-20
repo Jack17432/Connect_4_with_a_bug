@@ -7,8 +7,7 @@ def main():
     while True:
         board.display_board()
         move_x, move_y = input(f"Player 1 make a move (format is 'row col')\n").split(" ")
-        board.make_move("x", (int(move_x), int(move_y)))
-        while None is board.make_move("o", (int(move_x), int(move_y))):
+        while not board.make_move("x", (int(move_x), int(move_y))):
             move_x, move_y = input(f"invalid move someone is there(format is 'row col')\n").split(" ")
 
         is_over, player = board.is_game_over()
@@ -18,7 +17,7 @@ def main():
 
         board.display_board()
         move_x, move_y = input(f"Player 2 make a move (format is 'row col')\n").split(" ")
-        while None is board.make_move("o", (int(move_x), int(move_y))):
+        while not board.make_move("o", (int(move_x), int(move_y))):
             move_x, move_y = input(f"invalid move someone is there(format is 'row col')\n").split(" ")
 
         is_over, player = board.is_game_over()

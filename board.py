@@ -14,26 +14,30 @@ class Board:
 
         self.board = [["_"] * size_of_board[1]] * size_of_board[0]
 
-    def make_move(self, player: str, position: (int, int)) -> Optional[int]:
+    def make_move(self, player: str, position: (int, int)) -> bool:
         """
-        Makes a move on the Connect 4 board for the given player at the specified position.
+        Attempts to make a move for the given player at the specified position on the Connect 4 board. If the move is valid,
+        the function updates the board and returns True. If the move is invalid (e.g., the position is already occupied), the
+        function returns False.
+
         Args:
-            player: A string representing the player making the move.
-            position: A tuple representing the (row, column) position on the board where the move is to be made.
+        - player (str): The token of the player making the move, either "x" or "o".
+        - position ((int, int)): The position on the board where the player wants to make their move. The first element
+            represents the row index, and the second element represents the column index.
+
         Returns:
-            An optional integer representing the player's score, if the move results in a win, otherwise None.
-        Raises:
-            ValueError: If the position is outside the board boundaries, or if the player is not "x" or "o".
+        - A boolean value indicating if the move was successfully made (True) or not (False).
         """
-        if position > self.size_of_board:
+        if position[0] > self.row or position[1] > self.col:
             raise ValueError("Play inside the self.board please")
         elif player not in ["x", "o"]:
             raise ValueError("Your not a real player!")
 
         if self.board[position[1]][position[0]] != "_":
-            return None
+            return False
         else:
             self.board[position[1]][position[0]] = player
+            return True
 
     def count_points(self, player: str) -> (int, int):
         """
