@@ -8,11 +8,10 @@ class Board:
 
         :param size_of_board: Length by width of board
         """
-        self.size_of_board: (int, int) = size_of_board
         self.row = size_of_board[0]
         self.col = size_of_board[1]
 
-        self.board = [["_"] * size_of_board[1]] * size_of_board[0]
+        self.board = [["_"] * self.col] * self.row
 
     def make_move(self, player: str, position: (int, int)) -> bool:
         """
