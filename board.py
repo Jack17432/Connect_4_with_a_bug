@@ -32,7 +32,7 @@ class Board:
         elif player not in ["x", "o"]:
             raise ValueError("Your not a real player!")
 
-        if self.board[position[1]][position[0]] != "_":
+        if self.board[position[0]][position[1]] != "_":
             return False
         else:
             self.board[position[0]][position[1]] = player

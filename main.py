@@ -2,7 +2,7 @@ from board import Board
 
 
 def main():
-    board = Board((5, 4))
+    board = Board()
 
     while True:
         board.display_board()
